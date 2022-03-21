@@ -8,6 +8,7 @@ body {
   background-image: url('/images/bg-4.jpg');
   background-size: cover;
   font-family: 'Raleway', sans-serif;
+  height: 100%;
 }
 
 header {
@@ -73,10 +74,14 @@ header button {
   cursor: pointer;
 }
 
-
-
-
 /* Task List Container */
+#task-list-container {
+  background-color: white;
+  height: 85%;
+  border: 1px solid grey;
+  border-radius: 15px;
+  padding: 10px;
+}
 
 
 
