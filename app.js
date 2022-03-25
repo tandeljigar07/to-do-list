@@ -2,9 +2,9 @@ const addTastBtn = document.getElementById('add-task-btn');
 const taskInputElement = document.getElementById('task-input');
 
 let taskNum = 0;
+let arr = []; 
 
-function addnum() {
-  let arr = [];    
+function addnum() {     
   taskNum++;
   arr.push(taskNum);
   
@@ -14,12 +14,12 @@ function addnum() {
 function createNewTask() {
   const taskInput = taskInputElement.value;
   const taskListElement = document.getElementById('tasklists');
-  
+  let newListElement;
   
   if (taskInput) {
-    console.log(taskInput);
+    // console.log(taskInput);
     //creating your list element;
-    const newListElement = document.createElement('li');
+    newListElement = document.createElement('li');
     newListElement.classList.add('task');
     newListElement.classList.add('task-' + addnum());
     const newDoneElement = document.createElement('div');
@@ -41,6 +41,19 @@ function createNewTask() {
   } else {
     alert('Kindly write something');
   }
+
+  if (newListElement) {
+    newListElement.addEventListener('click', function(event) {
+      event.target.parentNode.remove();
+      arr.pop();
+      taskNum--;
+    })
+  }
 }
 
 addTastBtn.addEventListener('click', createNewTask);
+document.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    createNewTask();
+  }
+})
