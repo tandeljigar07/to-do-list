@@ -4,10 +4,11 @@ const taskInputElement = document.getElementById('task-input');
 function createNewTask() {
   const taskInput = taskInputElement.value;
   const taskListElement = document.getElementById('tasklists');
+  
   if (taskInput) {
     console.log(taskInput);
     //creating your list element;
-    const newListElement = document.createElement('li');
+    let newListElement = document.createElement('li');
     newListElement.classList.add('task');
     const newDoneElement = document.createElement('div');
     newDoneElement.classList.add('done');
@@ -24,9 +25,10 @@ function createNewTask() {
     // add task to the task list
     taskListElement.appendChild(newListElement);
     taskInputElement.value = "";
+
   } else {
     alert('Kindly write something');
   }
 }
 
-addTastBtn.addEventListener('click', createNewTask)
+addTastBtn.addEventListener('click', createNewTask);
